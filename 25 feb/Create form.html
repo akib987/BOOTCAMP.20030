@@ -1,0 +1,182 @@
+<html>
+    <head>
+        <title>Create Form</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <script type="text/javascript">
+            //Reg Ex Declaration - Globaly.
+			var $FNameLNameRegEx = /^([a-zA-Z]{2,20})$/;
+			var $FullNameRegEx = /^([a-zA-Z ]{2,40})$/;
+			var $BankAccountNameRegEx = /^([a-zA-Z ]{2,60})$/;
+			var $PasswordRegEx = /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[^\w\s]).{8,12}$/;
+
+			var $EmailIdRegEx = /^\b[A-Z0-9._%-]+@[A-Z0-9.-]+\.[A-Z]{2,8}\b$/i;
+			var $ConNoRegEx = /^([0-9]{10})$/;
+			var $AgeRegEx = /^([0-9]{1,2})$/;
+			var $AadhaarNoRegEx = /^([0-9]{12})$/;
+			var $GSTNoRegEx=/^[0-9]{2}[A-Z]{5}[0-9]{4}[A-Z]{1}[1-9A-Z]{1}Z[0-9A-Z]{1}$/;
+			var $IndianDrivingLicenseNoRegEx = /^([A-Z]{2,3}[-/0-9]{8,13})$/;
+			var $IndianVehicleRegNoRegEx = /^([A-Z]{2}[0-9]{1,2}[A-Z]{1,3}[0-9]{1,4})$/;
+			var $PincodeRegEx = /^[1-9][0-9]{5,6}$/;
+			var $PANNoRegEx = /^[A-Z]{3}[ABCFGHLJPT][A-Z][0-9]{4}[A-Z]$/;
+			var $IFSCCodeRegEx = /^[A-Za-z]{4}0[A-Z0-9a-z]{6}$/;
+			var $BankAccountNoRegEx = /^([0-9]{9,18})$/;
+			var $PostTitleRegex =/^(.{30,300})$/;
+			var $PostDescRegex = /^(.{100,3000})$/;
+			var $LatitudeLongitude=/^(-?(?:1[0-7]|[1-9])?\d(?:\.\d{1,8})?|180(?:\.0{1,8})?)$/;
+            $(document).ready(function(){
+
+            
+			
+            
+            $("#TxtName").blur(function(){
+                var TxtNameFlag=false,TxtContactnoFlag=false,TxtEmailIdFlag=false,TxtPasswordFlag=false;
+
+					if($(this).val()=="" || $(this).val()==null)
+					{
+						$("#TxtFirstNameValidation").html("(*) Firstname required..!!");
+						TxtNameFlag=false;
+					}
+					else{
+						if(!$(this).val().match($FNameLNameRegEx))
+						{
+							$("#TxtNameValidation").html("(*) Invalid firstname..!!");
+							TxtNameFlag=false;
+						}
+						else{
+							TxtNameFlag=true;
+						}
+					}
+				});
+                $("#TxtLastName").blur(function(){
+					$("#TxtLastNameValidation").empty();
+					if($(this).val()=="" || $(this).val()==null)
+					{
+						$("#TxtLastNameValidation").html("(*) Firstname required..!!");
+						TxtNameFlag=false;
+					}
+					else{
+						if(!$(this).val().match($FNameLNameRegEx))
+						{
+							$("#TxtNameValidation").html("(*) Invalid Lastname..!!");
+							TxtNameFlag=false;
+						}
+						else{
+							TxtNameFlag=true;
+						}
+					}
+				});
+                $("#TxtContactnNo").blur(function(){
+					$("#ContactNoValidation").empty();
+					if($(this).val()=="" || $(this).val()==null)
+					{
+						$("#TxtContactNoValidation").html("(*) ContactNo required..!!");
+						TxtNameFlag=false;
+					}
+					else{
+						if(!$(this).val().match($ContactNoRegEx))
+						{
+							$("#TxtContactNoValidation").html("(*) Invalid ContactNo..!!");
+							TxtNameFlag=false;
+						}
+						else{
+							TxtNameFlag=true;
+						}
+					}
+				});
+                $("#TxtEmailId").blur(function(){
+					$("#EmailIdValidation").empty();
+					if($(this).val()=="" || $(this).val()==null)
+					{
+						$("#TxtEmailIdValidation").html("(*) EmailId required..!!");
+						TxtNameFlag=false;
+					}
+					else{
+						if(!$(this).val().match($EmailIdRegEx))
+						{
+							$("#TxtEmailIdValidation").html("(*) Invalid EmailId..!!");
+							TxtNameFlag=false;
+						}
+						else{
+							TxtNameFlag=true;
+						}
+					}
+				});
+                $("#TxtPassword").blur(function(){
+					$("#PasswordValidation").empty();
+					if($(this).val()=="" || $(this).val()==null)
+					{
+						$("#TxtPasswordValidation").html("(*) Password required..!!");
+						TxtNameFlag=false;
+					}
+					else{
+						if(!$(this).val().match($PasswordRegEx))
+						{
+							$("#TxtPasswordValidation").html("(*) Invalid Password..!!");
+							TxtNameFlag=false;
+						}
+						else{
+							TxtNameFlag=true;
+						}
+					}
+				});
+                $("#BtnSubmit").click(function(){
+                $("#TxtFirstNameNoValidition").empty();
+                    if($(FirstName).val()=="" || $(this).val()==null)
+                    {
+                        $("FirstNameValidition").html("(*)  required..!!");
+                        TxtContactNo.Flag=false;
+                    }
+                    else{
+                        if(!$(this).val().match($FNameLNameRegEx))
+                        {
+                            $("#TxtFirstNameValidition").html("(*) Invalid FirstName..!! ");
+                            TxtFirstName.Flag=false;
+                        }
+                        else{
+                            TxtFirstName.Flag=true;
+                        }
+                    }
+                });
+				$("#BtnSubmit").click(function(){
+                $("#TxtLastNameValidition").empty();
+                    if($(LastName).val()=="" || $(this).val()==null)
+                    {
+                        $("LastNameValidition").html("(*)  required..!!");
+                        TxtLastName.Flag=false;
+                    }
+                    else{
+                        if(!$(this).val().match($LnameLNameRegEx))
+                        {
+                            $("#LastNameValidition").html("(*) Invalid LastName..!! ");
+                            TxtLastName.Flag=false;
+                        }
+                        else{
+                            TxtLastName.Flag=true;
+                        }
+                    }
+                });
+				$("#BtnSubmit").click(function(){
+                $("#TxtContacteNoValidition").empty();
+                    if($(ContactNo).val()=="" || $(this).val()==null)
+                    {
+                        $("LastNameValidition").html("(*)  required..!!");
+                        TxtLastName.Flag=false;
+                    }
+                    else{
+                        if(!$(this).val().match($LnameLNameRegEx))
+                        {
+                            $("#LastNameValidition").html("(*) Invalid LastName..!! ");
+                            TxtLastName.Flag=false;
+                        }
+                        else{
+                            TxtLastName.Flag=true;
+                        }
+                    }
+                });
+
+
+            });
+        </script>
+    </head>
+</html>
